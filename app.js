@@ -9,11 +9,9 @@ var path = require('path');
 var handlebars = require('express3-handlebars')
 
 var artistscreen = require('./routes/artistscreen');
-var help = require('./routes/help');
 var index = require('./routes/index');
 var library = require('./routes/library');
 var likeThis = require('./routes/likeThis');
-var menu = require('./routes/menu');
 var results = require('./routes/results');
 var login = require('./routes/login');
 var map = require('./routes/map');
@@ -44,11 +42,9 @@ if ('development' == app.get('env')) {
 
 app.get('/artistscreen', artistscreen.view);
 app.get('/artistscreen/:name', artistscreen.viewName);
-app.get('/help', help.view);
 app.get('/', login.view);
 app.get('/index', index.view);
 app.get('/likeThis/:name', likeThis.viewFromArtist);
-app.get('/menu', menu.view);
 app.get('/results', results.view);
 app.get('/add/:name', library.addAlt);
 app.get('/add', library.addAlt);
