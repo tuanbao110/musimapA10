@@ -69,19 +69,16 @@
                 </div>
             </div>
         </nav>
-        <div class="textbody">
+        <div class="textbody" id="popup">
 			<div id="welcome" class="getstart">
 				<div class="xbutton">
-					<h4>Welcome to Musimap!
-					
+                    <h4>Welcome to Musimap!</h4>	
 				</div>
-				<div> </div>
 				<div class="textbox">
-				
 					<p>This is a web app for exploring and cataloging music artists.</p>
 					<p>Use the map or search for artists to add to your music collection.</p>
 					<p>Press the '?' button for more information.</p>
-					<a onclick="gettingstarted()" class="pull-right">x</a></h4>
+					<a id="popup-close" class="pull-right">x</a>
 				</div>
 			</div>
         </div>
@@ -125,6 +122,18 @@ function gettingstarted() {
         x.style.display = "none";
     }
 }
+        </script>
+        <script>
+$(document).ready(function() {
+    if(localStorage.getItem('popState') == 'shown'){
+        $("#popup").hide();
+    }
+
+    $("#popup-close").click(function(e) {
+        $("#popup").fadeOut();
+        localStorage.setItem('popState', 'shown');
+    });
+});
         </script>
     </body>
 </html>
