@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MusiMap Map</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.css" rel="stylesheet">
+        <link href="./css/map.css" rel="stylesheet">
+        <script src='js/cytoscape.js'></script>
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/map_buttons.js"></script>
+    </head>
+    <body>
+        <div id="cy"></div>
+        <script>
+$.getJSON("data3.json", function (data) {
+    console.log(data);
+    var cy = cytoscape({
+        container: document.getElementById('cy'),
+        elements: data,
+        style: [
+        {
+            selector: 'node[inLibrary="true"]',
+            style: {
+                'content': 'data(label)',
+                'text-valign': 'center',
+                'text-outline-width': 2,
+                'text-outline-color': '#a80a0a',
+                'color': 'white',
+                'shape': 'hexagon',
+                'background-color': '#a80a0a'
+            }
+        },
+        {
+            selector: 'node[inLibrary="false"]',
+            style: {
+                'content': 'data(label)',
+                'text-valign': 'center',
+                'text-outline-width': 2,
+                'text-outline-color': 'black',
+                'color': 'white',
+                'shape': 'hexagon',
+                'background-color': 'black'
+            }
+        },
+        {
+            selector: 'edge',
+            style: {
+                'line-color': 'gray',
+                'overlay-opacity': 0
+            }
+        }
+        ],
+        layout: {
+        }
+    });
+
+    cy.on('tap', 'node', function() {
+        window.parent.location.href = this.data('href');
+    });
+
+    cy.nodes().ungrabify();
+    var layout = cy.layout({name: 'cose'});
+    layout.run();
+});
+        </script>
+    </body>
+</html>
