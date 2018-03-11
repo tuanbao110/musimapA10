@@ -7,8 +7,9 @@ body {
 }
 
 #logo {
-  margin-right: 25%;
-  margin-left: 25%;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 10%;
 }
 #container {
