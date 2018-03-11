@@ -1,5 +1,6 @@
 body {
     background-color: rgb(235, 235, 235);
+    overflow-y: scroll;
 }
 /* Dropdown Button */
 .question {
