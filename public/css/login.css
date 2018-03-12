@@ -51,3 +51,9 @@ input[type=text], select {
   cursor: pointer;
 
 }
+a:active {
+	text-decoration: none;
+}
+button:active{
+	text-decoration: none;
+}

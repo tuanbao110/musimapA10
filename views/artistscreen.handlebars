@@ -16,13 +16,14 @@
         <nav class="navbar">
            <!-- Container for Dropdown and Search bar -->
             <div class="container">
+			<a class="backbtn" onclick="goBack()"> < Back </a>
 			<a href="../" class="logout"> log out </a>
                 <div>		
 				<h1 style="color:#a80a0a">
 					<a href="../index"</a><img src="../img/icon.png" width=30% class="icon" >
 						<a style="color:#a80a0a" onclick="myFunction()" class="dropbtn" >
 							<i class="fa fa-question dropbtn"></i>
-						</a> > Library
+						</a>
 					</h1>
 				</div>
                     <div class="dropdown">
@@ -91,11 +92,13 @@
 							</div>
                         <div class="center">
                             {{#if inLibrary}}
-							<div><a href="../likeThis/{{name}}"><h3 style="color:#a80a0a">More Like This</h3></a></div>
-                            <div><a href="../add/{{name}}"><h4 style="color:#a80a0a">Remove From Library</h4></a></div>
+							<div class="addremove"><a href="../likeThis/{{name}}"><button><p >More Like This</p></button></a></div>
+
+                            <div class="addremove"><a href="../add/{{name}}"><button><p >Remove From Library</p></button></a></div>
                             {{else}}
-                            <div><a href="../add/{{name}}"><h3 style="color:#a80a0a">Add to Library</h3></a></div>
-							<div><a href="../likeThis/{{name}}"><h3 style="color:#a80a0a">More Like This</h3></a></div>
+                            <div class="addremove"><a href="../add/{{name}}"><button ><p >Add to Library</p></button></a></div>
+
+							<div class="addremove"><a href="../likeThis/{{name}}"><button><p >More Like This</p></button></a></div>
                             {{/if}}
                         </div>
                     </div>
